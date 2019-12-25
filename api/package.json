@@ -1,0 +1,35 @@
+{
+  "name": "sam-api",
+  "version": "1.0.0",
+  "description": "API for Sam app.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "db:migrate": "sequelize db:migrate",
+    "db:reset": "sequelize db:drop || true && sequelize db:create && sequelize db:migrate && sequelize db:seed:all"
+  },
+  "author": "Sammy Samkough",
+  "license": "ISC",
+  "devDependencies": {
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-plugin-import": "^2.19.1",
+    "nodemon": "^2.0.2"
+  },
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "dotenv": "^8.2.0",
+    "eslint-config-prettier": "^6.7.0",
+    "eslint-plugin-prettier": "^3.1.2",
+    "express": "^4.17.1",
+    "morgan": "^1.9.1",
+    "pg": "^7.15.1",
+    "pg-hstore": "^2.3.3",
+    "prettier": "^1.19.1",
+    "sequelize": "^5.21.3"
+  }
+}
