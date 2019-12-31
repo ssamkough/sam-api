@@ -2,6 +2,7 @@ const path = require("path");
 const express = require("express");
 const controller = require("./controllers");
 const blocksController = controller.blocks;
+const messagingController = controller.messaging;
 
 const apiRouter = express.Router();
 
@@ -20,5 +21,8 @@ apiRouter.get("/blocks", wrapAsync(blocksController.list));
 apiRouter.post("/blocks", wrapAsync(blocksController.create));
 apiRouter.delete("/blocks/:id", wrapAsync(blocksController.destroy));
 apiRouter.get("/blocks/:id", wrapAsync(blocksController.show));
+
+// messaging routes
+apiRouter.post("/sms", messagingController.response);
 
 module.exports = apiRouter;

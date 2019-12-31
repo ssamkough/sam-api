@@ -4,6 +4,7 @@ const bodyParser = require("body-parser");
 
 const router = require("./router");
 const errorHandler = require("./middleware/errorHandler");
+const messageHandler = require("./middleware/messageHandler");
 
 const app = express();
 app.use(logger("dev"));
@@ -18,6 +19,7 @@ app.get("/", (req, res) => {
   res.status(200).send('<a href="' + fullUrl + '">' + fullUrl + "</a>");
 });
 
+app.use(messageHandler);
 app.use(errorHandler);
 
 module.exports = app;

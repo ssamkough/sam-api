@@ -4,3 +4,4 @@ api/.env
 .secret
 client/node_modules
 api/node_modules
+api/yarn-error.log
