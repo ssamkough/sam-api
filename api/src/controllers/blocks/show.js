@@ -1,5 +1,4 @@
-const Block = require("../../models").Block;
-const SamError = require("../../errors/samError");
+import { Block } from "../../models";
 
 const show = async (req, res, next) => {
   const block = await Block.findByPk(req.params.id, { rejectOnEmpty: true });
@@ -13,4 +12,4 @@ const render = block => {
   };
 };
 
-module.exports = show;
+export default show;

@@ -1,6 +1,6 @@
-const path = require("path");
-const express = require("express");
-const controller = require("./controllers");
+import path from "path";
+import express from "express";
+import controller from "./controllers";
 const blocksController = controller.blocks;
 const messagingController = controller.messaging;
 
@@ -25,4 +25,4 @@ apiRouter.get("/blocks/:id", wrapAsync(blocksController.show));
 // messaging routes
 apiRouter.post("/sms", messagingController.response);
 
-module.exports = apiRouter;
+export default apiRouter;

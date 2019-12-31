@@ -1,5 +1,4 @@
-const Block = require("../../models").Block;
-const SamError = require("../../errors/samError");
+import { Block } from "../../models";
 
 const create = async (req, res, next) => {
   const block = await Block.create({
@@ -15,4 +14,4 @@ const render = block => {
   };
 };
 
-module.exports = create;
+export default create;

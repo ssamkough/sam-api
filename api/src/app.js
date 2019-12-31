@@ -1,10 +1,10 @@
-const express = require("express");
-const logger = require("morgan");
-const bodyParser = require("body-parser");
+import express from "express";
+import logger from "morgan";
+import bodyParser from "body-parser";
 
-const router = require("./router");
-const errorHandler = require("./middleware/errorHandler");
-const messageHandler = require("./middleware/messageHandler");
+import router from "./router";
+import errorHandler from "./middleware/errorHandler";
+import messageHandler from "./middleware/messageHandler";
 
 const app = express();
 app.use(logger("dev"));
@@ -22,4 +22,4 @@ app.get("/", (req, res) => {
 app.use(messageHandler);
 app.use(errorHandler);
 
-module.exports = app;
+export default app;

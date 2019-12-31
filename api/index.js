@@ -1,5 +1,5 @@
 require("dotenv").config();
-const app = require("./src/app");
+import app from "./src/app";
 
 const onAppStarted = () => {
   console.log(`App running on ${port}.`);

@@ -22,4 +22,4 @@ class SamError extends Error {
 }
 
 SamError.Types = require("./errorTypes");
-module.exports = SamError;
+export default SamError;

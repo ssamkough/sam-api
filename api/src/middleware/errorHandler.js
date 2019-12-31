@@ -25,4 +25,4 @@ const errorHandler = (error, req, res, next) => {
   console.error(error.stack);
 };
 
-module.exports = errorHandler;
+export default errorHandler;

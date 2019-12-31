@@ -13,4 +13,4 @@ const messageHandler = (error, req, res, next) => {
     .then(message => console.log(message.sid));
 }
 
-module.exports = messageHandler;
+export default messageHandler;

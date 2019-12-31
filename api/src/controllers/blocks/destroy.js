@@ -1,5 +1,4 @@
-const Block = require("../../models").Block;
-const SamError = require("../../errors/samError");
+import { Block } from "../../models";
 
 const destroy = async (req, res, next) => {
   const block = await Block.findByPk(req.params.id);
@@ -14,4 +13,4 @@ const render = block => {
   };
 };
 
-module.exports = destroy;
+export default destroy;
