@@ -4,8 +4,8 @@
   "description": "API for Sam app.",
   "main": "index.js",
   "scripts": {
-    "start": "node -r esm index.js",
-    "dev": "nodemon -r esm index.js",
+    "start": "babel-node index.js",
+    "dev": "nodemon -L --exec babel-node index.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
@@ -21,11 +21,16 @@
     "nodemon": "^2.0.2"
   },
   "dependencies": {
+    "@babel/cli": "^7.7.7",
+    "@babel/core": "^7.7.7",
+    "@babel/node": "^7.7.7",
+    "@babel/plugin-transform-runtime": "^7.7.6",
+    "@babel/preset-env": "^7.7.7",
+    "@babel/runtime": "^7.7.7",
     "body-parser": "^1.19.0",
     "dotenv": "^8.2.0",
     "eslint-config-prettier": "^6.7.0",
     "eslint-plugin-prettier": "^3.1.2",
-    "esm": "^3.2.25",
     "express": "^4.17.1",
     "faker": "^4.1.0",
     "morgan": "^1.9.1",
