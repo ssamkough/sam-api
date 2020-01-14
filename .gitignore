@@ -1,7 +1,4 @@
 .env
-client/.env
-api/.env
 .secret
-client/node_modules
-api/node_modules
-api/yarn-error.log
+node_modules
+yarn-error.log
