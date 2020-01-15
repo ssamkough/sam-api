@@ -32,12 +32,11 @@
     "eslint-config-prettier": "^6.7.0",
     "eslint-plugin-prettier": "^3.1.2",
     "express": "^4.17.1",
-    "faker": "^4.1.0",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.8.7",
     "morgan": "^1.9.1",
-    "pg": "^7.15.1",
-    "pg-hstore": "^2.3.3",
     "prettier": "^1.19.1",
-    "sequelize": "^5.21.3",
-    "twilio": "^3.39.1"
+    "twilio": "^3.39.1",
+    "uniqid": "^5.2.0"
   }
 }
