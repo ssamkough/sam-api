@@ -1,7 +1,7 @@
-import { Block } from "../../models";
+import Block from "../../models/Block";
 
 const show = async (req, res, next) => {
-  const block = await Block.findByPk(req.params.id, { rejectOnEmpty: true });
+  const block = await Block.findById(req.params.id);
   res.json(render(block));
 };
 
