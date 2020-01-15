@@ -35,6 +35,7 @@
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.8.7",
     "morgan": "^1.9.1",
+    "papaparse": "^5.1.1",
     "prettier": "^1.19.1",
     "twilio": "^3.39.1",
     "uniqid": "^5.2.0"
