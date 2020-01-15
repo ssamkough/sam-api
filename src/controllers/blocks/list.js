@@ -1,7 +1,7 @@
-import { Block } from "../../models";
+import Block from "../../models/Block";
 
 const list = async (req, res, next) => {
-  const blocks = await Block.findAll();
+  const blocks = await Block.find();
   res.json(render(blocks));
 };
 
