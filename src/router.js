@@ -21,6 +21,7 @@ apiRouter.get("/blocks", wrapAsync(blocksController.list));
 apiRouter.post("/blocks", wrapAsync(blocksController.create));
 apiRouter.delete("/blocks/:id", wrapAsync(blocksController.destroy));
 apiRouter.get("/blocks/:id", wrapAsync(blocksController.show));
+apiRouter.put("/blocks/:id", wrapAsync(blocksController.update));
 
 // messaging routes
 apiRouter.post("/sms", messagingController.response);
