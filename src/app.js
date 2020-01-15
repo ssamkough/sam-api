@@ -4,12 +4,13 @@ import bodyParser from "body-parser";
 import mongoose from "mongoose";
 
 import router from "./router";
+import initialDump from "./database/scripts/initialDump";
 import errorHandler from "./middleware/errorHandler";
 import messageHandler from "./middleware/messageHandler";
 
-const db = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_USER_PWD}@${process.env.DB_CONN}`;
+import db from "./database/config";
 mongoose.connect(
-  db,
+  db.db_string,
   { useNewUrlParser: true, useUnifiedTopology: true },
   () => {
     console.log("Connected to MongoDB!");
@@ -29,6 +30,7 @@ app.get("/", (req, res) => {
   res.status(200).send('<a href="' + fullUrl + '">' + fullUrl + "</a>");
 });
 
+app.use(initialDump);
 app.use(messageHandler);
 app.use(errorHandler);
 
