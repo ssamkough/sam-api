@@ -2,14 +2,35 @@ import csv from "papaparse";
 import fs from "fs";
 import path from "path";
 
-const initialDump = (req, res, next) => {
-    const currentDirectory = path.basename(path.dirname(filename));
-    const path_string = currentDirectory + "/../models";
-    console.log(path_string);
-    fs.readdir(path_string, (error, files) => { 
-        let totalFiles = files.length; 
-        console.log(totalFiles); 
-     });
-};
+import User from "../../models/User";
+import Block from "../../models/Block";
+import { TerminatingSipDomainList } from "twilio/lib/rest/trunking/v1/trunk/terminatingSipDomain";
 
-export default initialDump;
+export default async (req, res, next) => {
+  const path_string = __dirname + "/../../models";
+  const totalFiles = fs.readdirSync(path_string).length;
+
+  // need to loop through files here
+  for (let i = 0; i < totalFiles; i++) {
+    console.log(totalFiles);
+  }
+
+  //  const block = await new Block({
+  //     name: req.body.name
+  //   });
+
+  //   await block.save();
+
+  //   const user = await new User({
+  //     first_name: req.body.first_name,
+  //     last_name: req.body.last_name,
+  //     email: req.body.email,
+  //     birth_date: req.body.birth_date,
+  //     about_me: req.body.about_me,
+  //     profile_image_url: req.body.profile_image_url,
+  //     job_title: req.body.job_title,
+  //     company: req.body.company
+  //   });
+
+  //   await user.save();
+};
