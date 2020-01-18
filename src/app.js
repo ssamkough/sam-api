@@ -31,7 +31,7 @@ app.get("/", (req, res) => {
 });
 
 app.use(initialDump);
-app.use(messageHandler);
+// app.use(messageHandler);
 app.use(errorHandler);
 
 export default app;
