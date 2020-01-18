@@ -1,6 +1,6 @@
-const SamError = require("../errors/samError");
+import SamError from "../errors/samError";
 
-const errorHandler = (error, req, res, next) => {
+export default (error, req, res, next) => {
   let errorCode = 2000;
   let httpStatusCode = 500;
   let errorMessage = error.message;
@@ -24,5 +24,3 @@ const errorHandler = (error, req, res, next) => {
   res.status(httpStatusCode).json(body);
   console.error(error.stack);
 };
-
-export default errorHandler;
