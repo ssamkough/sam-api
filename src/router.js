@@ -12,9 +12,9 @@ function wrapAsync(fn) {
   };
 }
 
-apiRouter.get("/", (_, res) =>
-  res.sendFile(path.resolve("src/public/index.html"))
-);
+apiRouter.get("/", (_, res) => {
+  res.redirect("https://documenter.getpostman.com/view/4669153/SWLmZ5Ks");
+});
 
 // block routes
 apiRouter.get("/blocks", wrapAsync(blocksController.list));
