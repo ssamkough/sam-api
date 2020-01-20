@@ -4,7 +4,6 @@ import bodyParser from "body-parser";
 import mongoose from "mongoose";
 
 import router from "./router";
-import initialDump from "./database/scripts/initialDump";
 import errorHandler from "./middleware/errorHandler";
 import messageHandler from "./middleware/messageHandler";
 
@@ -30,7 +29,6 @@ app.get("/", (req, res) => {
   res.status(200).send('<a href="' + fullUrl + '">' + fullUrl + "</a>");
 });
 
-app.use(initialDump);
 // app.use(messageHandler);
 app.use(errorHandler);
 

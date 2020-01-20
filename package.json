@@ -6,11 +6,10 @@
   "scripts": {
     "start": "babel-node index.js",
     "dev": "nodemon -L --exec babel-node index.js",
+    "db:reset": "babel-node src/database/scripts/initialDump.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "eslint .",
-    "lint:fix": "eslint . --fix",
-    "db:migrate": "sequelize db:migrate",
-    "db:reset": "sequelize db:drop || true && sequelize db:create && sequelize db:migrate && sequelize db:seed:all"
+    "lint:fix": "eslint . --fix"
   },
   "author": "Sammy Samkough",
   "license": "ISC",
