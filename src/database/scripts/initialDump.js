@@ -1,4 +1,4 @@
-import csv from "papaparse";
+import Papa from "papaparse";
 import fs from "fs";
 import path from "path";
 
@@ -13,6 +13,15 @@ export default async (req, res, next) => {
   fs.readdirSync(pathString, (err, files) => {
     files.forEach((file, index) => {
       console.log(index + file);
+      Papa.parse(file, {
+        header: true,
+        step: function(results) {
+          console.log("Row:", results.data);
+        },
+        complete: function(results) {
+          console.log("Finished:", results.data);
+        }
+      });
     });
   });
 
