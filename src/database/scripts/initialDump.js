@@ -4,16 +4,17 @@ import path from "path";
 
 import User from "../../models/User";
 import Block from "../../models/Block";
-import { TerminatingSipDomainList } from "twilio/lib/rest/trunking/v1/trunk/terminatingSipDomain";
 
 export default async (req, res, next) => {
-  const path_string = __dirname + "/../../models";
-  const totalFiles = fs.readdirSync(path_string).length;
+  console.log("test");
+  const pathString = `${__dirname}/../../models`;
+  const totalFiles = fs.readdirSync(pathString).length;
 
-  // need to loop through files here
-  for (let i = 0; i < totalFiles; i++) {
-    console.log(totalFiles);
-  }
+  fs.readdirSync(pathString, (err, files) => {
+    files.forEach((file, index) => {
+      console.log(index + file);
+    });
+  });
 
   //  const block = await new Block({
   //     name: req.body.name
