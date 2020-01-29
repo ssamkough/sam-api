@@ -4,7 +4,8 @@
   "description": "API for Sam app.",
   "main": "index.js",
   "scripts": {
-    "start": "babel-node index.js",
+    "start": "node dist/app.js",
+    "build": "babel src --out-dir dist",
     "dev": "nodemon -L --exec babel-node index.js",
     "db:reset": "babel-node src/database/scripts/initialDump.js",
     "test": "echo \"Error: no test specified\" && exit 1",
