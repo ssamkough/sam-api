@@ -1,3 +1,4 @@
+require("dotenv").config();
 import express from "express";
 import logger from "morgan";
 import bodyParser from "body-parser";
@@ -32,4 +33,9 @@ app.get("/", (req, res) => {
 // app.use(messageHandler);
 app.use(errorHandler);
 
-export default app;
+const onAppStarted = () => {
+  console.log(`App running on ${port}.`);
+};
+
+const port = parseInt(process.env.PORT) || 8000;
+app.listen(port, onAppStarted);

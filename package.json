@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node dist/app.js",
     "build": "babel src --out-dir dist",
-    "dev": "nodemon -L --exec babel-node index.js",
+    "dev": "nodemon -L --exec babel-node src/app.js",
     "db:reset": "babel-node src/database/scripts/initialDump.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "eslint .",

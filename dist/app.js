@@ -2,11 +2,6 @@
 
 var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports["default"] = void 0;
-
 var _express = _interopRequireDefault(require("express"));
 
 var _morgan = _interopRequireDefault(require("morgan"));
@@ -22,6 +17,8 @@ var _errorHandler = _interopRequireDefault(require("./middleware/errorHandler"))
 var _messageHandler = _interopRequireDefault(require("./middleware/messageHandler"));
 
 var _config = _interopRequireDefault(require("./database/config"));
+
+require("dotenv").config();
 
 _mongoose["default"].connect(_config["default"].db_string, {
   useNewUrlParser: true,
@@ -43,5 +40,10 @@ app.get("/", function (req, res) {
 }); // app.use(messageHandler);
 
 app.use(_errorHandler["default"]);
-var _default = app;
-exports["default"] = _default;
+
+var onAppStarted = function onAppStarted() {
+  console.log("App running on ".concat(port, "."));
+};
+
+var port = parseInt(process.env.PORT) || 8000;
+app.listen(port, onAppStarted);
