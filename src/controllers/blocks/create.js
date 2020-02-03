@@ -1,4 +1,4 @@
-import Block from "../../models/Block";
+import Block from "./../../models/Block";
 
 const create = async (req, res, next) => {
   const block = await new Block({

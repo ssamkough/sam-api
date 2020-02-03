@@ -1,4 +1,4 @@
-import Block from "../../models/Block";
+import Block from "./../../models/Block";
 
 const destroy = async (req, res, next) => {
   const block = await Block.remove({ _id: req.params.id });

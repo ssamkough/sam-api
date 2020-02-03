@@ -1,4 +1,4 @@
-import Block from "../../models/Block";
+import Block from "./../../models/Block";
 
 const update = async (req, res, next) => {
   const block = await Block.updateOne(

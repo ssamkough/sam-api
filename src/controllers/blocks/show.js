@@ -1,4 +1,4 @@
-import Block from "../../models/Block";
+import Block from "./../../models/Block";
 
 const show = async (req, res, next) => {
   const block = await Block.findById(req.params.id);
