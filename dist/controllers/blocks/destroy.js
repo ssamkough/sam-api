@@ -11,7 +11,7 @@ var _regenerator = _interopRequireDefault(require("@babel/runtime/regenerator"))
 
 var _asyncToGenerator2 = _interopRequireDefault(require("@babel/runtime/helpers/asyncToGenerator"));
 
-var _Block = _interopRequireDefault(require("../../models/Block"));
+var _Block = _interopRequireDefault(require("./../../models/Block"));
 
 var destroy =
 /*#__PURE__*/

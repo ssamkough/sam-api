@@ -8,9 +8,10 @@
     "build": "babel src --out-dir dist",
     "dev": "nodemon -L --exec babel-node src/app.js",
     "db:reset": "babel-node src/database/scripts/initialDump.js",
-    "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "eslint .",
-    "lint:fix": "eslint . --fix"
+    "lint:fix": "eslint . --fix",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "gcp-build": "npm run build"
   },
   "author": "Sammy Samkough",
   "license": "ISC",
@@ -42,6 +43,6 @@
     "uniqid": "^5.2.0"
   },
   "engines": {
-    "node": "<= 10.x"
+    "node": ">=10.0"
   }
 }
