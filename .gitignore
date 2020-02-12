@@ -1,6 +1,12 @@
-dist
+# keys
 .env
 .secret
-node_modules
+src/database/service-account-file.json
+
+# logs
 yarn-error.log
-src/assets/models
+
+# directories
+dist
+node_modules
+src/assets/data
