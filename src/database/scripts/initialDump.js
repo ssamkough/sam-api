@@ -34,7 +34,8 @@ export default async () => {
       step: results => {
         if (file == "blocks.csv") {
           let data = {
-            name: results.data.name
+            name: results.data.name,
+            timestamp: admin.firestore.FieldValue.serverTimestamp()
           };
 
           db.collection("blocks")
@@ -50,7 +51,8 @@ export default async () => {
             profile_image_url: results.data.profile_image_url,
             job_title: results.data.job_title,
             company: results.data.company,
-            password: hashedPwd
+            password: hashedPwd,
+            timestamp: admin.firestore.FieldValue.serverTimestamp()
           };
 
           db.collection("users")
