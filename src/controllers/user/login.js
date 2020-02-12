@@ -1,13 +1,11 @@
 import jwt from "jsonwebtoken";
-
-import User from "../../models/User";
+import db from "./../../database/config";
 
 const login = async (req, res, next) => {
-  const user = await User.findOne({ email: req.body.email });
-  const token = jwt.sign({ _id: user._id }, process.env.TOKEN_SECRET);
-  res.header("auth-token", token);
-
-  res.json(render(user));
+  // const user = await User.findOne({ email: req.body.email });
+  // const token = jwt.sign({ _id: user._id }, process.env.TOKEN_SECRET);
+  // res.header("auth-token", token);
+  // res.json(render(user));
 };
 
 const render = user => {
