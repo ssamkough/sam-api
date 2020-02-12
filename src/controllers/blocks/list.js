@@ -1,17 +1,17 @@
 import db from "./../../database/config";
 
 const list = async (req, res, next) => {
-  let blocks = db.collection("blocks");
-  let response = [];
+  const blocksRef = db.collection("blocks");
+  let blocks = [];
 
-  await blocks.get().then(snapshot => {
+  await blocksRef.get().then(snapshot => {
     let docs = snapshot.docs;
     docs.forEach(doc => {
-      response.push(doc.data());
+      blocks.push(doc.data());
     });
   });
 
-  res.json(render(response));
+  res.json(render(blocks));
 };
 
 const render = blocks => {
