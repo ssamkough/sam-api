@@ -19,10 +19,7 @@ apiRouter.get("/", (_, res) => {
 
 // block routes
 apiRouter.get("/blocks", wrapAsync(blocksController.list));
-apiRouter.post("/blocks", wrapAsync(blocksController.create));
-apiRouter.delete("/blocks/:id", wrapAsync(blocksController.destroy));
-apiRouter.get("/blocks/:id", wrapAsync(blocksController.show));
-apiRouter.put("/blocks/:id", wrapAsync(blocksController.update));
+apiRouter.get("/blocks/:name", wrapAsync(blocksController.show));
 
 // user routes
 apiRouter.post("/login", usersController.login);
