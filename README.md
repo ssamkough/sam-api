@@ -6,7 +6,15 @@ App to manage Sammy's life.
 
 Install all node packages via yarn:
 
-`yarn add`
+`yarn`
+
+### Firebase
+
+Followed [Cloud Firestore quickstart](https://firebase.google.com/docs/firestore/quickstart). Some things to note:
+
+- Switched from firestore mode to native mode
+- Enabled Cloud Firestore API
+- Set environment variable _GOOGLE_APPLICATION_CREDENTIALS_ to file path of the JSON file in `./database`
 
 ### Twilio
 
