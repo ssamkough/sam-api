@@ -3,7 +3,7 @@ import fs from "fs";
 import bcrypt from "bcryptjs";
 import admin from "firebase-admin";
 
-import serviceAccount from "./../service-account-file.json";
+import serviceAccount from "./../../../service-account-file.json";
 
 export default async () => {
   admin.initializeApp({
@@ -19,7 +19,7 @@ export default async () => {
   let hashedPwd;
   try {
     const salt = bcrypt.genSaltSync(10);
-    hashedPwd = bcrypt.hashSync(`${process.env.USER_PWD}`, salt);
+    hashedPwd = bcrypt.hashSync(process.env.USER_PWD, salt);
   } catch (err) {
     console.log(err);
   }
@@ -47,16 +47,17 @@ export default async () => {
             last_name: results.data.last_name,
             email: results.data.email,
             birth_date: results.data.birth_date,
-            about_me: results.data.about_me,
+            tagline: results.data.tagline,
             profile_image_url: results.data.profile_image_url,
             job_title: results.data.job_title,
             company: results.data.company,
+            about_me: results.data.about_me,
             password: hashedPwd,
             timestamp: admin.firestore.FieldValue.serverTimestamp()
           };
 
           db.collection("users")
-            .doc("sam")
+            .doc(results.data.email)
             .set(data);
         }
       },
