@@ -1,5 +1,6 @@
 import path from "path";
 import express from "express";
+import cors from "cors";
 
 import verify from "./middleware/auth/verifyToken";
 import controller from "./controllers";
@@ -24,25 +25,26 @@ apiRouter.get("/", (_, res) => {
 });
 
 // block routes
-apiRouter.get("/blocks", verify, wrapAsync(blocksController.list));
-apiRouter.get("/blocks/:name", verify, wrapAsync(blocksController.show));
+apiRouter.get("/blocks", cors(), wrapAsync(blocksController.list));
+apiRouter.get("/blocks/:name", cors(), wrapAsync(blocksController.show));
 
 // user routes
-apiRouter.post("/login", usersController.login);
+apiRouter.post("/users/login", usersController.login);
+apiRouter.get("/users/show", cors(), usersController.show);
 
 // notebook routes
-apiRouter.get("/posts", verify, notebookController.list);
-apiRouter.get("/posts/:path", verify, notebookController.show);
+apiRouter.get("/posts", cors(), notebookController.list);
+apiRouter.get("/posts/:path", cors(), notebookController.show);
 apiRouter.post("/posts", verify, notebookController.create);
 
 // projects routes
-apiRouter.get("/projects", verify, projectsController.list);
-apiRouter.get("/projects/:path", verify, projectsController.show);
+apiRouter.get("/projects", cors(), projectsController.list);
+apiRouter.get("/projects/:path", cors(), projectsController.show);
 apiRouter.post("/projects", verify, projectsController.create);
 
 // services routes
-apiRouter.get("/services", verify, servicesController.list);
-apiRouter.get("/services/:path", verify, servicesController.show);
+apiRouter.get("/services", cors(), servicesController.list);
+apiRouter.get("/services/:path", cors(), servicesController.show);
 apiRouter.post("/services", verify, servicesController.create);
 
 // messaging routes
