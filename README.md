@@ -29,7 +29,7 @@ Utilized App Engine to build my application to the internet. Followed this [hand
 3. After I wrote my `app.yaml` file, I deployed it by running `gcloud app deploy`. To view my app after deploying it I ran `gcloud app browse`. For testing purposes I kept doing this manually until I had my app set up.
 4. To view logs I opened my [Logs Viewer](https://cloud.google.com/appengine/docs/standard/nodejs/building-app/viewing-service-logs) in the cloud console as well checked the Source.
 
-#### Other
+#### Other ⛺️
 
 - Setup a [Cloud Build](https://cloud.google.com/run/docs/continuous-deployment-with-cloud-build) trigger, which " _automatically starts a build whenever you make any changes to your source code_". I have it pointing straight to this repo, so whenever I push any changes, it redeploys the app.
 - For the token I pass, I initially had underscores like so: `SAM_API_TOKEN`. It was working when I was testing locally, but Google Cloud removes any headers with underscores, so I changed it to dashes instead.
