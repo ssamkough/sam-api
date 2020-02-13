@@ -1,15 +1,16 @@
 import blockList from "./blocks/list";
 import blockShow from "./blocks/show";
 import userLogin from "./user/login";
+import userShow from "./user/show";
 import notebookList from "./notebook/list";
 import notebookShow from "./notebook/show";
 import notebookCreate from "./notebook/create";
 import projectList from "./projects/list";
 import projectShow from "./projects/show";
 import projectCreate from "./projects/create";
-import serviceList from "./service/list";
-import serviceShow from "./service/show";
-import serviceCreate from "./service/create";
+import serviceList from "./services/list";
+import serviceShow from "./services/show";
+import serviceCreate from "./services/create";
 import messagingResponse from "./messaging/response";
 
 export default {
@@ -18,7 +19,8 @@ export default {
     show: blockShow
   },
   users: {
-    login: userLogin
+    login: userLogin,
+    show: userShow
   },
   notebook: {
     list: notebookList,
