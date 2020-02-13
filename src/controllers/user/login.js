@@ -5,18 +5,27 @@ import db from "./../../database/config";
 
 const login = async (req, res, next) => {
   const document = db.collection("users").doc(req.body.email);
-  const user = await document.get();
+  const userRef = await document.get();
+  const user = userRef.data();
   if (!user) {
     return res.status(400).send("Invalid Email!");
   }
 
-  const validPass = await bcrypt.compare(req.body.password, user.password);
+  let validPass;
+  try {
+    validPass = await bcrypt.compare(req.body.password, user.password);
+  } catch (err) {
+    console.log(err);
+  }
+
   if (!validPass) {
     return res.status(400).send("Invalid Password!");
   }
 
   const token = jwt.sign({ email: user.email }, process.env.TOKEN_SECRET);
-  res.header("auth-token", token);
+  res.header("sam-api-token", token);
+  user["jwt_token"] = token;
+
   res.json(render(user));
 };
 
