@@ -10,6 +10,7 @@ const usersController = controller.users;
 const notebookController = controller.notebook;
 const projectsController = controller.projects;
 const servicesController = controller.services;
+const musicController = controller.music;
 const messagingController = controller.messaging;
 
 const apiRouter = express.Router();
@@ -46,6 +47,20 @@ apiRouter.post("/projects", verify, projectsController.create);
 apiRouter.get("/services", cors(), servicesController.list);
 apiRouter.get("/services/:path", cors(), servicesController.show);
 apiRouter.post("/services", verify, servicesController.create);
+
+// music routes
+apiRouter.get("/spotify_token", cors(), musicController.spotify_token);
+apiRouter.get(
+  "/spotify_token_callback",
+  cors(),
+  musicController.spotify_token_callback
+);
+apiRouter.get("/spotify/playlists", cors(), musicController.spotify_playlists);
+apiRouter.get(
+  "/spotify/recent_tracks",
+  cors(),
+  musicController.spotify_recent_tracks
+);
 
 // messaging routes
 apiRouter.post("/sms", verify, messagingController.response);

@@ -11,6 +11,10 @@ import projectCreate from "./projects/create";
 import serviceList from "./services/list";
 import serviceShow from "./services/show";
 import serviceCreate from "./services/create";
+import musicSpotifyToken from "./music/spotify_token";
+import musicSpotifyTokenCallback from "./music/spotify_token_callback";
+import musicSpotifyPlaylists from "./music/spotify_playlists";
+import musicSpotifyRecentTracks from "./music/spotify_recent_tracks";
 import messagingResponse from "./messaging/response";
 
 export default {
@@ -36,6 +40,12 @@ export default {
     list: serviceList,
     show: serviceShow,
     create: serviceCreate
+  },
+  music: {
+    spotify_token: musicSpotifyToken,
+    spotify_token_callback: musicSpotifyTokenCallback,
+    spotify_playlists: musicSpotifyPlaylists,
+    spotify_recent_tracks: musicSpotifyRecentTracks
   },
   messaging: {
     response: messagingResponse
