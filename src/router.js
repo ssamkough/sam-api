@@ -1,9 +1,8 @@
 import path from "path";
 import express from "express";
-import cors from "cors";
 
-import verify from "./middleware/auth/verifyToken";
 import controller from "./controllers";
+import verify from "./middleware/auth/verifyToken";
 
 const blocksController = controller.blocks;
 const usersController = controller.users;
@@ -25,44 +24,52 @@ apiRouter.get("/", (_, res) => {
   res.redirect("https://documenter.getpostman.com/view/4669153/SWLmZ5Ks");
 });
 
-// block routes
-apiRouter.get("/blocks", cors(), wrapAsync(blocksController.list));
-apiRouter.get("/blocks/:name", cors(), wrapAsync(blocksController.show));
+/* public routes */
+// blocks
+apiRouter.get("/blocks", wrapAsync(blocksController.list));
+apiRouter.get("/blocks/:name", wrapAsync(blocksController.show));
 
-// user routes
+// user
 apiRouter.post("/users/login", usersController.login);
-apiRouter.get("/users/show", cors(), usersController.show);
+apiRouter.get("/users/show", usersController.show);
 
-// notebook routes
-apiRouter.get("/posts", cors(), notebookController.list);
-apiRouter.get("/posts/:path", cors(), notebookController.show);
-apiRouter.post("/posts", verify, notebookController.create);
+// notebook
+apiRouter.get("/posts", notebookController.list);
+apiRouter.get("/posts/:path", notebookController.show);
 
-// projects routes
-apiRouter.get("/projects", cors(), projectsController.list);
-apiRouter.get("/projects/:path", cors(), projectsController.show);
-apiRouter.post("/projects", verify, projectsController.create);
+// projects
+apiRouter.get("/projects", projectsController.list);
+apiRouter.get("/projects/:path", projectsController.show);
 
-// services routes
-apiRouter.get("/services", cors(), servicesController.list);
-apiRouter.get("/services/:path", cors(), servicesController.show);
-apiRouter.post("/services", verify, servicesController.create);
+// services
+apiRouter.get("/services", servicesController.list);
+apiRouter.get("/services/:path", servicesController.show);
 
-// music routes
-apiRouter.get("/spotify_token", cors(), musicController.spotify_token);
+// music
+apiRouter.get("/spotify_token", musicController.spotify_token);
 apiRouter.get(
   "/spotify_token_callback",
-  cors(),
+
   musicController.spotify_token_callback
 );
-apiRouter.get("/spotify/playlists", cors(), musicController.spotify_playlists);
+apiRouter.get("/spotify/playlists", musicController.spotify_playlists);
 apiRouter.get(
   "/spotify/recent_tracks",
-  cors(),
+
   musicController.spotify_recent_tracks
 );
 
-// messaging routes
+/* private routes */
+// posts
+apiRouter.post("/posts", verify, notebookController.create);
+
+// projects
+apiRouter.post("/projects", verify, projectsController.create);
+
+// services
+apiRouter.post("/services", verify, servicesController.create);
+
+// messaging
 apiRouter.post("/sms", verify, messagingController.response);
 
 export default apiRouter;
