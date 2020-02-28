@@ -5,7 +5,7 @@ import admin from "firebase-admin";
 
 import serviceAccount from "./../../../service-account-file.json";
 
-export default async () => {
+export const initialDump = async () => {
   admin.initializeApp({
     credential: admin.credential.cert(serviceAccount),
     databaseURL: "https://sam-api-267023.firebaseio.com"
@@ -37,12 +37,16 @@ export default async () => {
             name: results.data.name,
             timestamp: admin.firestore.FieldValue.serverTimestamp()
           };
-
-          db.collection("blocks")
-            .doc(results.data.name)
-            .set(data);
+          try {
+            db.collection("blocks")
+              .doc(results.data.name)
+              .set(data);
+          } catch (err) {
+            console.log(err);
+          }
         } else if (file == "users.csv") {
           let data = {
+            uuid: results.data.uuid,
             first_name: results.data.first_name,
             last_name: results.data.last_name,
             email: results.data.email,
@@ -56,9 +60,13 @@ export default async () => {
             timestamp: admin.firestore.FieldValue.serverTimestamp()
           };
 
-          db.collection("users")
-            .doc(results.data.email)
-            .set(data);
+          try {
+            db.collection("users")
+              .doc(process.env.FB_USER_UUID)
+              .set(data);
+          } catch (err) {
+            console.log(err);
+          }
         }
       },
       complete: () => {
