@@ -4,11 +4,11 @@ import jwt from "jsonwebtoken";
 import db from "./../../database/config";
 
 const login = async (req, res, next) => {
-  const document = db.collection("users").doc(req.body.email);
+  const document = db.collection("users").doc(req.body.uuid);
   const userRef = await document.get();
   const user = userRef.data();
   if (!user) {
-    return res.status(400).send("Invalid Email!");
+    return res.status(400).send("Invalid uuid!");
   }
 
   let validPass;
