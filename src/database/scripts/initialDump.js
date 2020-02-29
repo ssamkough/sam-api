@@ -37,6 +37,7 @@ export const initialDump = async () => {
             name: results.data.name,
             timestamp: admin.firestore.FieldValue.serverTimestamp()
           };
+
           try {
             db.collection("blocks")
               .doc(results.data.name)
