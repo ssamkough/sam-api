@@ -1,7 +1,7 @@
 import db from "./../../database/config";
 
 const show = async (req, res, next) => {
-  const document = db.collection("blocks").doc(req.params.name);
+  const document = await db.collection("blocks").doc(req.params.name);
   const blockRef = await document.get();
   const block = blockRef.data();
 

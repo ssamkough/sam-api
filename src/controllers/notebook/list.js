@@ -1,7 +1,7 @@
 import db from "../../database/config";
 
 const list = async (req, res, next) => {
-  const notebook = db.collection("notebook");
+  const notebook = await db.collection("notebook");
   let posts = [];
 
   await notebook.get().then(snapshot => {

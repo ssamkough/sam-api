@@ -4,7 +4,7 @@ import jwt from "jsonwebtoken";
 import db from "./../../database/config";
 
 const login = async (req, res, next) => {
-  const document = db.collection("users").doc(req.body.uuid);
+  const document = await db.collection("users").doc(req.body.uuid);
   const userRef = await document.get();
   const user = userRef.data();
   if (!user) {

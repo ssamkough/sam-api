@@ -4,21 +4,21 @@ import db from "../../database/config";
 const create = async (req, res, next) => {
   const postPath = req.body.title.replace(/\s+/g, "-").toLowerCase();
 
-  let postRef = db.collection("notebook").doc(postPath);
+  let postRef = await db.collection("notebook").doc(postPath);
   let getDoc = await postRef.get();
   if (getDoc.exists) {
     return res.status(400).send("Title Exists!");
   }
 
-  const timestamp = admin.firestore.Timestamp.fromDate(new Date()).toDate();
-  const date = timestamp.toDateString();
+  const createdAt = admin.firestore.Timestamp.fromDate(new Date()).toDate();
+  const date = createdAt.toDateString();
 
   const post = {
     title: req.body.title,
     content: req.body.content,
     tags: req.body.tags,
     path: postPath,
-    timestamp: timestamp,
+    created_at: createdAt,
     date: date
   };
 

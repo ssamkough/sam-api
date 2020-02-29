@@ -1,7 +1,7 @@
 import db from "../../database/config";
 
 const list = async (req, res, next) => {
-  const projectsRef = db.collection("projects");
+  const projectsRef = await db.collection("projects");
   let projects = [];
 
   await projectsRef.get().then(snapshot => {

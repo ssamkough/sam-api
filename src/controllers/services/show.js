@@ -1,7 +1,7 @@
 import db from "../../database/config";
 
 const show = async (req, res, next) => {
-  const document = db.collection("services").doc(req.params.path);
+  const document = await db.collection("services").doc(req.params.path);
   const serviceRef = await document.get();
   const service = serviceRef.data();
 
