@@ -5,12 +5,18 @@ import userShow from "./user/show";
 import notebookList from "./notebook/list";
 import notebookShow from "./notebook/show";
 import notebookCreate from "./notebook/create";
+import notebookUpdate from "./notebook/update";
+import notebookDestroy from "./notebook/destroy";
 import projectList from "./projects/list";
 import projectShow from "./projects/show";
 import projectCreate from "./projects/create";
+import projectUpdate from "./projects/update";
+import projectDestroy from "./projects/destroy";
 import serviceList from "./services/list";
 import serviceShow from "./services/show";
 import serviceCreate from "./services/create";
+import serviceUpdate from "./services/update";
+import serviceDestroy from "./services/destroy";
 import musicSpotifyToken from "./music/spotify_token";
 import musicSpotifyTokenCallback from "./music/spotify_token_callback";
 import musicSpotifyPlaylists from "./music/spotify_playlists";
@@ -29,17 +35,23 @@ export default {
   notebook: {
     list: notebookList,
     show: notebookShow,
-    create: notebookCreate
+    create: notebookCreate,
+    update: notebookUpdate,
+    destroy: notebookDestroy
   },
   projects: {
     list: projectList,
     show: projectShow,
-    create: projectCreate
+    create: projectCreate,
+    update: projectUpdate,
+    destroy: projectDestroy
   },
   services: {
     list: serviceList,
     show: serviceShow,
-    create: serviceCreate
+    create: serviceCreate,
+    update: serviceUpdate,
+    destroy: serviceDestroy
   },
   music: {
     spotify_token: musicSpotifyToken,

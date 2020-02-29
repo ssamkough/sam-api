@@ -62,12 +62,18 @@ apiRouter.get(
 /* private routes */
 // posts
 apiRouter.post("/posts", verify, notebookController.create);
+apiRouter.put("/posts/:path", verify, notebookController.update);
+apiRouter.delete("/posts/:path", verify, notebookController.destroy);
 
 // projects
 apiRouter.post("/projects", verify, projectsController.create);
+apiRouter.put("/projects/:path", verify, projectsController.update);
+apiRouter.delete("/projects/:path", verify, projectsController.destroy);
 
 // services
 apiRouter.post("/services", verify, servicesController.create);
+apiRouter.put("/services/:path", verify, servicesController.update);
+apiRouter.delete("/services/:path", verify, servicesController.destroy);
 
 // messaging
 apiRouter.post("/sms", verify, messagingController.response);
