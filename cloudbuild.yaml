@@ -6,8 +6,6 @@ steps:
         "build",
         "-t",
         "gcr.io/$PROJECT_ID/https://sam-api-267023.appspot.com/:$COMMIT_SHA",
-        "-t",
-        "gcr.io/$PROJECT_ID/https://sam-api-267023.appspot.com:latest",
         ".",
       ]
   # push the container image to Container Registry
