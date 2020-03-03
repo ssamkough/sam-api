@@ -1,4 +1,3 @@
-import path from "path";
 import express from "express";
 
 import controller from "./controllers";
@@ -9,6 +8,8 @@ const usersController = controller.users;
 const notebookController = controller.notebook;
 const projectsController = controller.projects;
 const servicesController = controller.services;
+const articlesController = controller.articles;
+const peopleController = controller.people;
 const musicController = controller.music;
 const messagingController = controller.messaging;
 
@@ -45,6 +46,12 @@ apiRouter.get("/projects/:path", projectsController.show);
 apiRouter.get("/services", servicesController.list);
 apiRouter.get("/services/:path", servicesController.show);
 
+// articles
+apiRouter.get("/articles", articlesController.list);
+
+// people
+apiRouter.get("/people", peopleController.list);
+
 // music
 apiRouter.get("/spotify_token", musicController.spotify_token);
 apiRouter.get(
@@ -74,6 +81,16 @@ apiRouter.delete("/projects/:path", verify, projectsController.destroy);
 apiRouter.post("/services", verify, servicesController.create);
 apiRouter.put("/services/:path", verify, servicesController.update);
 apiRouter.delete("/services/:path", verify, servicesController.destroy);
+
+// articles
+apiRouter.post("/articles", verify, articlesController.create);
+apiRouter.put("/articles/:id", verify, articlesController.update);
+apiRouter.delete("/articles/:id", verify, articlesController.destroy);
+
+// people
+apiRouter.post("/people", verify, peopleController.create);
+apiRouter.put("/people/:id", verify, peopleController.update);
+apiRouter.delete("/people/:id", verify, peopleController.destroy);
 
 // messaging
 apiRouter.post("/sms", verify, messagingController.response);

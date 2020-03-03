@@ -17,6 +17,17 @@ import serviceShow from "./services/show";
 import serviceCreate from "./services/create";
 import serviceUpdate from "./services/update";
 import serviceDestroy from "./services/destroy";
+import articlesList from "./articles/list";
+import articlesCreate from "./articles/create";
+import articlesUpdate from "./articles/update";
+import articlesDestroy from "./articles/destroy";
+import peopleList from "./people/list";
+import peopleCreate from "./people/create";
+import peopleUpdate from "./people/update";
+import peopleDestroy from "./people/destroy";
+import serviceCreate from "./services/create";
+import serviceUpdate from "./services/update";
+import serviceDestroy from "./services/destroy";
 import musicSpotifyToken from "./music/spotify_token";
 import musicSpotifyTokenCallback from "./music/spotify_token_callback";
 import musicSpotifyPlaylists from "./music/spotify_playlists";
@@ -52,6 +63,18 @@ export default {
     create: serviceCreate,
     update: serviceUpdate,
     destroy: serviceDestroy
+  },
+  articles: {
+    list: articlesList,
+    create: articlesCreate,
+    update: articlesUpdate,
+    destroy: articlesDestroy
+  },
+  people: {
+    list: peopleList,
+    create: peopleCreate,
+    update: peopleUpdate,
+    destroy: peopleDestroy
   },
   music: {
     spotify_token: musicSpotifyToken,
