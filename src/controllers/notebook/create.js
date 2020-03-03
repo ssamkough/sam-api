@@ -22,6 +22,7 @@ const create = async (req, res, next) => {
     title: req.body.title,
     content: req.body.content,
     snippet: snippet,
+    helpers: req.body.helpers,
     tags: req.body.tags,
     path: postPath,
     created_at: createdAt,
