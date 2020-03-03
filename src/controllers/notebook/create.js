@@ -12,10 +12,16 @@ const create = async (req, res, next) => {
 
   const createdAt = admin.firestore.Timestamp.fromDate(new Date()).toDate();
   const date = createdAt.toDateString();
+  const snippet =
+    req.body.content
+      .split(" ")
+      .slice(0, 10)
+      .join(" ") + "...";
 
   const post = {
     title: req.body.title,
     content: req.body.content,
+    snippet: snippet,
     tags: req.body.tags,
     path: postPath,
     created_at: createdAt,
