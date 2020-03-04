@@ -14,7 +14,7 @@ const list = async (req, res, next) => {
   res.json(render(articles));
 };
 
-const render = peple => {
+const render = articles => {
   return {
     status: 1000,
     data: articles

@@ -2,7 +2,7 @@ import admin from "firebase-admin";
 import db from "../../database/config";
 
 const update = async (req, res, next) => {
-  const articleRef = await db.collection("notebook").doc(req.params.id);
+  const articleRef = await db.collection("articles").doc(req.params.id);
   let updatedArticleObj = req.body;
 
   if (req.body.tags) {
