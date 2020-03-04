@@ -2,7 +2,7 @@ import admin from "firebase-admin";
 import db from "../../database/config";
 
 const update = async (req, res, next) => {
-  const personRef = await db.collection("notebook").doc(req.params.id);
+  const personRef = await db.collection("people").doc(req.params.id);
   let updatedPersonObj = req.body;
 
   updatedPersonObj.edited_at = admin.firestore.Timestamp.fromDate(
