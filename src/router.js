@@ -21,7 +21,7 @@ function wrapAsync(fn) {
   };
 }
 
-apiRouter.get("/", (_, res) => {
+apiRouter.get("/", (req, res) => {
   res.redirect("https://documenter.getpostman.com/view/4669153/SWLmZ5Ks");
 });
 
