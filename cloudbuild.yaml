@@ -1,5 +1,4 @@
 steps:
-  # build the container image
   - name: "gcr.io/cloud-builders/docker"
     args:
       [
@@ -8,24 +7,23 @@ steps:
         "gcr.io/$PROJECT_ID/https://sam-api-267023.appspot.com/:$COMMIT_SHA",
         ".",
       ]
-  # push the container image to Container Registry
   - name: "gcr.io/cloud-builders/docker"
     args:
       [
         "push",
         "gcr.io/$PROJECT_ID/https://sam-api-267023.appspot.com/:$COMMIT_SHA",
       ]
-  # Deploy container image to Cloud Run
   - name: "gcr.io/cloud-builders/gcloud"
     args:
-      - "run"
-      - "deploy"
-      - "https://sam-api-267023.appspot.com/"
-      - "--image"
-      - "gcr.io/$PROJECT_ID/https://sam-api-267023.appspot.com/:$COMMIT_SHA"
-      - "--region"
-      - "us-east4"
-      - "--platform"
-      - "managed"
-images:
-  - "gcr.io/$PROJECT_ID/https://sam-api-267023.appspot.com/:$COMMIT_SHA"
+      [
+        "run",
+        "deploy",
+        "https://sam-api-267023.appspot.com/",
+        "--image",
+        "gcr.io/$PROJECT_ID/https://sam-api-267023.appspot.com/:$COMMIT_SHA",
+        "--region",
+        "us-east4",
+        "--platform",
+        "managed",
+      ]
+images: ["gcr.io/$PROJECT_ID/https://sam-api-267023.appspot.com/:$COMMIT_SHA"]
