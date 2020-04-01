@@ -1,4 +1,11 @@
 steps:
+  - name: node
+    entrypoint: npm
+    args: ["run", "create-env"]
+    env:
+      - "TOKEN_SECRET=${_TOKEN_SECRET}"
+      - "FB_USER_UUID=${_FB_USER_UUID}"
+      - "USER_PWD=${_USER_PWD}"
   - name: "gcr.io/cloud-builders/gcloud"
     args: ["app", "deploy"]
 timeout: "1600s"
