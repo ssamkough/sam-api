@@ -6,7 +6,6 @@ import cors from "cors";
 
 import router from "./router";
 import errorHandler from "./middleware/errorHandler";
-import messageHandler from "./middleware/messageHandler";
 
 const app = express();
 app.use(logger("dev"));
@@ -22,7 +21,6 @@ app.get("/", (req, res) => {
   res.status(200).send('<a href="' + fullUrl + '">' + fullUrl + "</a>");
 });
 
-// app.use(messageHandler);
 app.use(errorHandler);
 
 const onAppStarted = () => {
