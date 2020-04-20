@@ -1,7 +1,6 @@
 # keys
 .env
 .secret
-service-account-file.json
 
 # logs
 yarn-error.log

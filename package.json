@@ -2,7 +2,7 @@
   "name": "sam-api",
   "version": "1.0.0",
   "description": "API for Sam app.",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
     "start": "node dist/app.js",
     "build": "babel src --out-dir dist",
