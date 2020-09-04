@@ -42,7 +42,7 @@
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.8.9",
     "morgan": "^1.9.1",
-    "papaparse": "^5.1.1",
+    "papaparse": "^5.2.0",
     "prettier": "^1.19.1",
     "query-string": "^6.11.0",
     "twilio": "^3.39.1",
