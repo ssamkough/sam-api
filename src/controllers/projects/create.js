@@ -16,6 +16,7 @@ const create = async (req, res, next) => {
   const project = {
     title: req.body.title,
     content: req.body.content,
+    url: req.body.url,
     tags: req.body.tags,
     path: projectPath,
     created_at: createdAt,
