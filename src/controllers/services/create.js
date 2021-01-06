@@ -2,7 +2,8 @@ import admin from "firebase-admin";
 import db from "../../database/config";
 
 const create = async (req, res, next) => {
-  const servicePath = req.body.title.replace(/\s+/g, "-").toLowerCase();
+  let servicePath = req.body.title.replace(/\s+/g, "-").toLowerCase();
+  servicePath = servicePath.replace("/", "_");
 
   let serviceRef = await db.collection("services").doc(servicePath);
   let getDoc = await serviceRef.get();
@@ -19,7 +20,7 @@ const create = async (req, res, next) => {
     tags: req.body.tags,
     path: servicePath,
     created_at: createdAt,
-    date: date
+    date: date,
   };
 
   await db
@@ -30,10 +31,10 @@ const create = async (req, res, next) => {
   res.json(render(service));
 };
 
-const render = service => {
+const render = (service) => {
   return {
     status: 1000,
-    data: service
+    data: service,
   };
 };
 
