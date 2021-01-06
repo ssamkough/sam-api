@@ -31,7 +31,7 @@ Utilized App Engine to build my application to the internet. Followed this [hand
 
 #### Other ⛺️
 
-- Setup a [Cloud Build](https://cloud.google.com/run/docs/continuous-deployment-with-cloud-build) trigger, which " _automatically starts a build whenever you make any changes to your source code_". I have it pointing straight to this repo, so whenever I push any changes, it redeploys the app.
+- Setup a [Cloud Build](https://cloud.google.com/run/docs/continuous-deployment-with-cloud-build) trigger, which "_automatically starts a build whenever you make any changes to your source code_". I have it pointing straight to this repo, so whenever I push any changes, it redeploys the app.
 - For the token I pass, I initially had underscores like so: `SAM_API_TOKEN`. It was working when I was testing locally, but Google Cloud removes any headers with underscores, so I changed it to dashes instead.
 - Also [mapped a custom subdomain](https://cloud.google.com/appengine/docs/standard/python/mapping-custom-domains) ([api.sammysamkough.com](api.sammysamkough.com)) to point to instead of the default Google Cloud url.
 
